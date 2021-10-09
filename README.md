@@ -2,13 +2,13 @@
 
 **Below tasks are accomplished in this repository.**
 
-*Task-1 : Write a program to manage student details with the below requirements.
+*Task-1 : Write a program to manage student details with the below requirements*
 
 1. JSP page to create student and save in database using JDBC
 2. JSP page to display saved students details from the database
 
 
-*Task-2 : Implement Authentication mechanism using Jsp & Servlet
+*Task-2 : Implement Authentication mechanism using Jsp & Servlet*
 
 1. Jsp Page to login
 2. Jsp Page to display students data
