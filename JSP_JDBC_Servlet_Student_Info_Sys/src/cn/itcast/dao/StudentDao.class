@@ -1,0 +1,42 @@
+package cn.itcast.dao;
+
+import cn.itcast.model.Student;
+import cn.itcast.util.JdbcUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+
+public class StudentDao {
+    //Declare JDBC template object
+    JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
+
+    //Add method
+    public void add(Student s){
+        String sql = "insert into student values(?,?,?,?,?,?,?)";
+        template.update(sql,s.getId(),s.getName(),s.getSex(),s.getAge(),
+                s.getAddress(),s.getMajor(),s.getInfo());
+    }
+
+    //Delete method
+    public void delete(int id){
+        String sql = "delete from student where id = ?";
+        template.update(sql,id);
+    }
+
+    //Modification method
+    public void update(Student s){
+        String sql = "update student set name = ?, sex = ?, age = ?, " +
+                "address = ?, major = ?, info = ? where id = ?";
+        template.update(sql,s.getName(),s.getSex(),s.getAge(),
+                s.getAddress(),s.getMajor(),s.getInfo(),s.getId());
+    }
+
+    //Query method
+    public List<Student> select(){
+        String sql = "select * from student";
+        List<Student> list = template.query(sql, new BeanPropertyRowMapper<Student>(Student.class));
+        return list;
+    }
+
+}
