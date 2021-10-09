@@ -1,0 +1,53 @@
+package cn.itcast.util;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+
+/**
+ * JDBC Tool class uses Druid database connection pool technology
+ */
+public class JdbcUtils {
+
+    private static DataSource ds;
+
+    static{
+        try{
+            //1. Load the configuration file
+            Properties prop = new Properties();
+            //Use ClassLoader to load configuration file and get byte input stream
+            InputStream is = JdbcUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+            prop.load(is);
+            //2. Initialize the connection pool object
+            ds = DruidDataSourceFactory.createDataSource(prop);
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //Gets the connection pool object
+    public static DataSource getDataSource(){
+        return ds;
+    }
+
+    //Gets the Connection connection object
+    public static Connection getConnection() throws SQLException {
+        return ds.getConnection();
+    }
+
+    //test
+    public static void main(String[] args) throws SQLException{
+        Connection conn = getConnection();
+        if(conn != null){
+            System.out.println("Database connection succeeded!");
+        }
+    }
+}
