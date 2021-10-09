@@ -20,8 +20,7 @@ import com.google.gson.Gson;
  * returns response to RegForm.jsp when Jquery fires an ajax request via get()
  * method in RegForm.jsp.The list contains the name of all courses. 
  * 
- * 
- * 
+ *  
  */
 @WebServlet(urlPatterns = { "/All_Courses_Servlet" })
 public class All_Courses_Servlet extends HttpServlet {
