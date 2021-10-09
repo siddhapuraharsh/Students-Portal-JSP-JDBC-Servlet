@@ -1,0 +1,78 @@
+package cn.itcast.model;
+
+public class Student {
+    private int id;
+    private String name;
+    private String sex;
+    private int age;
+    private String address;
+    private String major; //major
+    private String info; //introduce oneself to
+
+    public Student() {}
+
+    public Student(int id, String name, String sex, int age, String address, String major, String info) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.major = major;
+        this.info = info;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+}
